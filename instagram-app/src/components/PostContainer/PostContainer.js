@@ -6,11 +6,11 @@ class PostContainer extends Component {
     render() {
         return (
             <div>
-                {this.props.dummyData.map(data => (
+                {this.props.newData.map((data, index) => (
                     <div key={data.username}>
                     <img src={data.thumbnailUrl} alt="img"/>
                     <p>{data.username}</p>
-                    <CommentSection comments={data.comments}/>
+                    <CommentSection index={index} comments={data.comments}/>
                     </div>
                 
                 ))}
@@ -21,7 +21,7 @@ class PostContainer extends Component {
 }
 
 PostContainer.propTypes = {
-    dummyData: PropTypes.arrayOf(
+    newData: PropTypes.arrayOf(
         PropTypes.shape({
             username: PropTypes.string,
             thumbnailUrl: PropTypes.string,

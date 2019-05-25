@@ -6,11 +6,26 @@ import Searchbar from "./components/SearchBar/SearchBar";
 
 
 class App extends React.Component{
+  constructor() {
+    super();
+    this.state = { 
+      newData: []
+    }
+  }
+  
+
+  componentDidMount() {
+    this.setState({ newData: dummyData})
+    console.log(this.state.newData)
+  }
+
+
   render(){
     return (
       <div className="App">
+      
       <Searchbar />
-      <PostContainer dummyData={dummyData} />
+      <PostContainer newData={this.state.newData} />
       </div>
     );
   }
