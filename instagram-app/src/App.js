@@ -1,31 +1,36 @@
 import React from 'react';
 import './App.css';
 import dummyData from "./dummy-data";
-import PostContainer from "./components/PostContainer/PostContainer";
-import Searchbar from "./components/SearchBar/SearchBar";
+import withAuthenticate from "./authentication/withAuthenticate";
+import PostPage from "./components/PostContainer/PostsPage";
 
+
+const ComponentFromWithAuthenticate =  withAuthenticate(PostPage);
 
 class App extends React.Component{
   constructor() {
     super();
     this.state = { 
-      newData: []
+      newData: [],
     }
   }
-  
 
   componentDidMount() {
     this.setState({ newData: dummyData})
-    console.log(this.state.newData)
   }
 
+  searchPosts = (username) => {
+    this.setState({newData: [...this.state.newData.filter(data => data.username === username)]})
+  }
 
   render(){
+    
+    console.log(withAuthenticate)
     return (
+
       <div className="App">
-      
-      <Searchbar />
-      <PostContainer newData={this.state.newData} />
+
+      <ComponentFromWithAuthenticate searchPosts={this.searchPosts} test="test" newData={this.state.newData} />
       </div>
     );
   }

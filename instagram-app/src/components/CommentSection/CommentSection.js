@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
+import "./CommentSection.css"
 
 class CommentSection extends Component {
     constructor(props) {
@@ -8,9 +9,33 @@ class CommentSection extends Component {
             comments: this.props.comments,
             id: null, 
             username: "", 
-            text: ""
+            text: "",
+            likes: 0
 
         }
+    }
+
+    // componentDidMount() {
+    //     const state = JSON.parse(window.localStorage.getItem('saved_state'));
+
+    //     if(state) {
+    //         this.state.comments.loadState(state)
+    //     }
+    // }
+
+    // componentDidUpdate() {
+    //     const state = {
+    //         comments: this.state.comments
+    //     }
+
+    //     window.localStorage.setItem('saved_state', JSON.stringify(state))
+    // }
+
+    incrementLikes= (e) => {
+        e.preventDefault();
+        this.setState(prevState => {
+            return{likes: prevState.likes + 1}
+        })
     }
 
     changeHandler = event => {
@@ -32,9 +57,15 @@ class CommentSection extends Component {
         console.log(this.props)
         return (
             <div>
+                <div className="likes-comments">
+                <i onClick={this.incrementLikes} className="far fa-heart"></i>
+                <i className="far fa-comment"></i>
+                </div>
+                <p>{this.state.likes}</p>
                 {this.state.comments.map((comment, index) => (
                     <div key={index}>
-                        <p>{comment.username}</p>
+
+                        <p><strong>{comment.username}</strong></p>
                         <p>{comment.text} </p>
                     </div>
                 ))}
