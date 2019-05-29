@@ -3,9 +3,10 @@ import './App.css';
 import dummyData from "./dummy-data";
 import withAuthenticate from "./authentication/withAuthenticate";
 import PostPage from "./components/PostContainer/PostsPage";
+import Login from "./components/Login/Login"
 
 
-const ComponentFromWithAuthenticate =  withAuthenticate(PostPage);
+const ComponentFromWithAuthenticate =  withAuthenticate(PostPage)(Login);
 
 class App extends React.Component{
   constructor() {
@@ -17,6 +18,7 @@ class App extends React.Component{
 
   componentDidMount() {
     this.setState({ newData: dummyData})
+
   }
 
   searchPosts = (username) => {
@@ -27,7 +29,7 @@ class App extends React.Component{
     
     return (
       <div className="App">
-      <ComponentFromWithAuthenticate searchPosts={this.searchPosts} newData={this.state.newData} />
+      <ComponentFromWithAuthenticate searchPosts={this.searchPosts} loggedIn={this.state.loggedIn} newData={this.state.newData} />
       </div>
     );
   }

@@ -1,21 +1,27 @@
 import React, { Component } from 'react'
+import "./Login.css"
 
 class Login extends Component {
     constructor() {
         super();
         this.state = {
             username: '',
-            password: ''
+            password: '',
         } 
     }
 
     login = (e) => {
-        e.preventDefault();
+        localStorage.setItem('username', this.state.username)
+        localStorage.setItem('password', this.state.password)
     }
+
+    changeHandler = event => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
     render() {
         return (
-            <div>
+            <div className="Login">
                 <form>
                     <input 
                     type="text"
@@ -31,7 +37,7 @@ class Login extends Component {
                     value={this.state.password}
                     name="password"
                     />
-                    <button onclick={this.props.login}>Login</button>
+                    <button onClick={this.login}>Login</button>
                 </form>
                 
             </div>
