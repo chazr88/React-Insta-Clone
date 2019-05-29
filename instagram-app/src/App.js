@@ -24,13 +24,9 @@ class App extends React.Component{
   }
 
   render(){
-    
-    console.log(withAuthenticate)
     return (
-
       <div className="App">
-
-      <ComponentFromWithAuthenticate searchPosts={this.searchPosts} test="test" newData={this.state.newData} />
+      <ComponentFromWithAuthenticate searchPosts={this.searchPosts} newData={this.state.newData} />
       </div>
     );
   }

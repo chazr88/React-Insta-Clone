@@ -6,7 +6,8 @@ const withAuthenticate = App =>
 class extends React.Component {
     
     render() {
-        return <App {...this.props} />
+        console.log(this.searchPosts)
+        return <App {...this.props} searchPosts={this.searchPosts} />
     }
 }
 
