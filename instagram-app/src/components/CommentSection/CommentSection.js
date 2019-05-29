@@ -39,7 +39,6 @@ class CommentSection extends Component {
     }
 
     changeHandler = event => {
-        console.log(event.target.value); //Target value
         this.setState({ text: event.target.value });
       };
     
@@ -54,7 +53,6 @@ class CommentSection extends Component {
     }
 
     render() {
-        console.log(this.props)
         return (
             <div>
                 <div className="likes-comments">

@@ -11,9 +11,10 @@ class PostsPage extends Component {
     }
     
     render() {
+
         return (
             <div>
-                <Searchbar newData={this.props.newData} searchPosts={this.searchPosts}/>
+                <Searchbar newData={this.props.newData}searchPosts={this.props.searchPosts}/>
                 <PostContainer newData={this.props.newData} />
             </div>
         )

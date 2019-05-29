@@ -26,7 +26,6 @@ class SearchBar extends Component {
 
 
     render() {
-        
         return (
             <div>
                 <form onSubmit={this.updateSearch}>
