@@ -1,0 +1,25 @@
+.posts {
+    width: 650px;
+    height: auto;
+    border: 1px solid rgb(119, 116, 116);
+    margin: 50px;
+}
+
+.post-user {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+}
+
+.posts .user-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin: 5px 10px;
+}
+
+.post-img {
+    width: 650px;
+    height: 600px;
+}
+
